@@ -36,5 +36,36 @@ namespace StringAnalyzerService.Services
             return input.GroupBy(c => c)
                        .ToDictionary(g => g.Key, g => g.Count());
         }
+
+        public static Dictionary<string, object> ParseNaturalLanguageQuery(string query)
+        {
+            var filters = new Dictionary<string, object>();
+            var lower = query.ToLower();
+
+            if (lower.Contains("palindrom"))
+                filters["is_palindrome"] = true;
+
+            if (lower.Contains("single word"))
+                filters["word_count"] = 1;
+
+            if (lower.Contains("longer than"))
+            {
+                var match = System.Text.RegularExpressions.Regex.Match(lower, @"longer than (\d+)");
+                if (match.Success)
+                    filters["min_length"] = int.Parse(match.Groups[1].Value) + 1;
+            }
+
+            if (lower.Contains("containing") || lower.Contains("contain"))
+            {
+                var match = System.Text.RegularExpressions.Regex.Match(lower, @"letter ([a-z])");
+                if (match.Success)
+                    filters["contains_character"] = match.Groups[1].Value;
+            }
+
+            if (lower.Contains("first vowel"))
+                filters["contains_character"] = "a";
+
+            return filters;
+        }
     }
 }
