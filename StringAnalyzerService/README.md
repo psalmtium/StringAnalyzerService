@@ -1,4 +1,4 @@
-﻿# String Analyzer Service
+# String Analyzer Service
 
 A RESTful API service that analyzes text strings and stores their computed properties. Built with C# ASP.NET Core and SQLite.
 
@@ -11,7 +11,6 @@ A RESTful API service that analyzes text strings and stores their computed prope
 - Advanced filtering with query parameters
 - Natural language query support
 - Persistent storage with SQLite
-
 
 ## Tech Stack
 
@@ -62,8 +61,8 @@ Removes a string from the database.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/string-analyzer-service.git
-cd string-analyzer-service
+git clone https://github.com/psalmtium/StringAnalyzerService
+cd StringAnalyzerService
 ```
 
 2. Restore dependencies:
@@ -78,7 +77,7 @@ dotnet run
 
 4. Access the API:
 - Swagger UI: http://localhost:5000/swagger
-- API Base: http://localhost:5000/strings
+
 
 ## Dependencies
 
