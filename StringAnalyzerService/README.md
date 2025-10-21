@@ -12,6 +12,7 @@ A RESTful API service that analyzes text strings and stores their computed prope
 - Natural language query support
 - Persistent storage with SQLite
 
+
 ## Tech Stack
 
 - C# ASP.NET Core 8.0
